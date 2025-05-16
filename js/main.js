@@ -1,43 +1,59 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Preloader
+    // Preloader with enhanced animation
     window.addEventListener('load', function() {
         const preloader = document.getElementById('preloader');
         preloader.style.opacity = '0';
+        preloader.style.transform = 'scale(1.5)';
         setTimeout(function() {
             preloader.style.display = 'none';
         }, 500);
     });
 
-    // Initialize AOS (Animate On Scroll)
+    // Initialize AOS with enhanced settings
     AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
+        duration: 1000,
+        easing: 'ease-in-out-cubic',
+        once: false,
+        mirror: true,
+        offset: 50
     });
 
-    // Navbar scroll effect
+    // Enhanced Navbar scroll effect
     const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
+    
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll > 50) {
             navbar.classList.add('scrolled');
+            if (currentScroll > lastScroll) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
         } else {
             navbar.classList.remove('scrolled');
+            navbar.style.transform = 'translateY(0)';
         }
+        
+        lastScroll = currentScroll;
     });
 
-    // Back to top button
+    // Enhanced Back to top button
     const backToTop = document.querySelector('.back-to-top');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 300) {
             backToTop.classList.add('active');
+            backToTop.style.transform = 'translateY(0)';
         } else {
             backToTop.classList.remove('active');
+            backToTop.style.transform = 'translateY(100px)';
         }
     });
 
-    // Smooth scrolling for navigation links
+    // Enhanced Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -55,6 +71,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth'
                 });
                 
+                // Add ripple effect to clicked link
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+                ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+                
+                setTimeout(() => ripple.remove(), 600);
+                
                 // Close mobile menu if open
                 const navbarToggler = document.querySelector('.navbar-toggler');
                 const navbarCollapse = document.querySelector('.navbar-collapse');
@@ -65,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Typing effect
+    // Enhanced Typing effect
     const typedTextSpan = document.querySelector('.typed-text');
     const cursorSpan = document.querySelector('.cursor');
     
@@ -118,45 +147,67 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(type, newTextDelay + 250);
     }
 
-    // Dark mode toggle
+    // Enhanced Dark mode toggle with smooth transitions
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     
-    // Check for saved user preference
+    // Add transition class to body
+    body.classList.add('theme-transition');
+
+    // Set dark mode as default
+    body.classList.add('dark-mode');
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    localStorage.setItem('theme', 'dark-mode');
+
+    // Check for saved user preference (only if user has explicitly changed it before)
     const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        body.classList.add(currentTheme);
-        
-        if (currentTheme === 'dark-mode') {
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
+    if (currentTheme === 'light-mode') {
+        body.classList.remove('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
     
     themeToggle.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        
+        // Add transition class to all elements
+        document.querySelectorAll('*').forEach(element => {
+            element.classList.add('theme-transition');
+        });
+        
+        icon.style.transform = 'rotate(360deg)';
+        
         if (body.classList.contains('dark-mode')) {
             body.classList.remove('dark-mode');
             themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            localStorage.setItem('theme', '');
+            localStorage.setItem('theme', 'light-mode');
         } else {
             body.classList.add('dark-mode');
             themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
             localStorage.setItem('theme', 'dark-mode');
         }
+        
+        // Remove transition class after animation
+        setTimeout(() => {
+            document.querySelectorAll('*').forEach(element => {
+                element.classList.remove('theme-transition');
+            });
+            icon.style.transform = 'rotate(0deg)';
+        }, 500);
     });
 
-    // Initialize skill bar animations
+    // Enhanced skill bar animations
     function initSkillBars() {
         const skillBars = document.querySelectorAll('.skill-progress');
-        skillBars.forEach(bar => {
+        skillBars.forEach((bar, index) => {
             const width = bar.style.width;
             bar.style.width = '0';
             setTimeout(() => {
                 bar.style.width = width;
-            }, 500);
+            }, 500 + (index * 100));
         });
     }
     
-    // Trigger skill bar animations when about section is visible
+    // Enhanced intersection observer for skill bars
     const aboutSection = document.getElementById('about');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -165,38 +216,84 @@ document.addEventListener('DOMContentLoaded', function() {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
+    }, { 
+        threshold: 0.5,
+        rootMargin: '0px'
+    });
     
     if (aboutSection) {
         observer.observe(aboutSection);
     }
 
-    // Contact Form Validation
+    // Enhanced Contact Form with email functionality
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        const formInputs = contactForm.querySelectorAll('.form-control');
+        
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.parentElement.classList.remove('focused');
+                }
+            });
+        });
+        
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Simple validation
-            let valid = true;
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
             
-            if (!name || !email || !subject || !message) {
-                valid = false;
-                alert('Please fill in all fields');
-            } else if (!isValidEmail(email)) {
-                valid = false;
-                alert('Please enter a valid email address');
+            // Simple validation
+            if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+                showNotification('Please fill in all fields', 'error');
+                return;
             }
             
-            if (valid) {
-                // For now, we'll just show a success message
-                // In a real implementation, you would send the form data to a backend service
-                alert('Thank you for your message! I will get back to you soon.');
+            if (!isValidEmail(formData.email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            try {
+                // Show loading state
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitButton.disabled = true;
+                
+                // Send email using EmailJS
+                await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                    to_email: 'mdkhaledaminshawon@gmail.com',
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    subject: formData.subject,
+                    message: formData.message
+                });
+                
+                // Show success message
+                showNotification('Thank you for your message! I will get back to you soon.', 'success');
                 contactForm.reset();
+                formInputs.forEach(input => {
+                    input.parentElement.classList.remove('focused');
+                });
+                
+            } catch (error) {
+                console.error('Error sending email:', error);
+                showNotification('Sorry, there was an error sending your message. Please try again later.', 'error');
+            } finally {
+                // Reset button state
+                submitButton.innerHTML = originalButtonText;
+                submitButton.disabled = false;
             }
         });
     }
@@ -205,8 +302,27 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
+    
+    function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 100);
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 3000);
+    }
 
-    // Project card hover effect (3D tilt effect)
+    // Enhanced Project card hover effect
     const projectCards = document.querySelectorAll('.project-card');
     
     projectCards.forEach(card => {
@@ -222,6 +338,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const rotateY = (mouseX / (cardRect.width / 2)) * 5;
             
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+            
+            // Add shine effect
+            const shine = document.createElement('div');
+            shine.className = 'shine';
+            shine.style.left = `${(e.clientX - cardRect.left) / cardRect.width * 100}%`;
+            shine.style.top = `${(e.clientY - cardRect.top) / cardRect.height * 100}%`;
+            
+            card.appendChild(shine);
+            
+            setTimeout(() => {
+                shine.remove();
+            }, 1000);
         });
         
         card.addEventListener('mouseleave', function() {
@@ -231,16 +359,43 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         });
     });
-    
-    // Bootstrap initialization for tooltips and popovers
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.map(function(tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
+
+    // Add parallax effect to hero section
+    const heroSection = document.querySelector('.hero-section');
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        if (heroSection) {
+            heroSection.style.backgroundPositionY = `${scrolled * 0.5}px`;
+        }
     });
-    
-    const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-    popoverTriggerList.map(function(popoverTriggerEl) {
-        return new bootstrap.Popover(popoverTriggerEl);
+
+    // Add custom cursor effect
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    document.addEventListener('mousemove', function(e) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    document.addEventListener('mousedown', function() {
+        cursor.classList.add('active');
+    });
+
+    document.addEventListener('mouseup', function() {
+        cursor.classList.remove('active');
+    });
+
+    // Add hover effect to links
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            cursor.classList.add('hover');
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            cursor.classList.remove('hover');
+        });
     });
 });
 
