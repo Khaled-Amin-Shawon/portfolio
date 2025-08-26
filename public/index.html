@@ -1,89 +1,883 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
-
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.1.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.1.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Khaled Amin Shawon | Flutter Developer & Competitive Programmer
+    </title>
+    <meta
+      name="description"
+      content="Portfolio of Khaled Amin Shawon, a professional Flutter Developer and Competitive Programmer specializing in mobile and web development"
+    />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- AOS CSS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
+
   <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="loader"></div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="#home">KS</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto py-4 py-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#competitive">CP Skills</a>
+              
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <button id="theme-toggle" class="btn">
+                <i class="fas fa-moon"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section">
+      <div class="hero-style">
+        <div class="container">
+          <div class="row align-items-center">
+            <!-- Added a new row div here -->
+            <div class="col-lg-12 hero-card-wrapper">
+              <div class="hero-text" data-aos="fade-right">
+                <div class="hero-text-continer">
+                  <div class="greeting">Hello, I'm</div>
+                  <h1 class="name">Khaled Amin Shawon</h1>
+                  <div class="position">
+                    <span class="typed-text"></span
+                    ><span class="cursor">&nbsp;</span>
+                  </div>
+                  <p class="bio">
+                    I build powerful, scalable, and beautiful apps with Flutter
+                    and Dart.
+                  </p>
+                  <div class="social-icons">
+                    <a
+                      href="https://github.com/Khaled-Amin-Shawon"
+                      target="_blank"
+                      class="social-icon"
+                      ><i class="fab fa-github"></i>
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/md-khaled-amin-356984242/"
+                      target="_blank"
+                      class="social-icon"
+                      ><i class="fab fa-linkedin"></i>
+                    </a>
+                    <!-- <a href="https://codeforces.com/" target="_blank" class="social-icon"><i class="fas fa-code"></i></a>
+                            <a href="https://codechef.com/" target="_blank" class="social-icon"><i class="fas fa-laptop-code"></i></a> -->
+                    <a
+                      href="https://leetcode.com/u/mdkhaledaminshawon/"
+                      target="_blank"
+                      class="social-icon"
+                    >
+                      <!-- <i class="fas fa-terminal"></i> -->
+                      <img
+                        src="https://avatars.githubusercontent.com/u/41718343?s=200&v=4"
+                        alt="LeetCode"
+                      />
+                    </a>
+                  </div>
+                  <div class="cta-buttons">
+                    <a
+                      href="https://drive.google.com/file/d/1mZEvnNKvNBRHFHAqVozNbNa__4NTIA75/view?usp=sharing"
+                      class="btn btn-primary btn-glow"
+                      >Download CV</a
+                    >
+                    <a href="#contact" class="btn btn-outline-primary"
+                      >Hire Me</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6" data-aos="fade-left">
+                <div class="profile-pic-container">
+                  <img
+                    src="images/profile_pic.jpg"
+                    alt="Profile Picture"
+                    class="img-fluid profile-pic"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Closing the new row div -->
+        </div>
+      </div>
+      <div class="custom-shape-divider-bottom">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            opacity=".25"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+            opacity=".5"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>About Me</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="about-text">
+              <h3>Why You Should Hire Me</h3>
+              <p>
+                I'm a passionate Flutter Developer and Competitive Programmer
+                with expertise in building cross-platform mobile applications
+                and solving complex problems. With a strong foundation in
+                algorithms and data structures, I bring a unique approach to
+                application development that focuses on optimized performance
+                and clean code.
+              </p>
+              <p>
+                My technical arsenal includes Flutter, Dart, Firebase, Supabase,
+                REST APIs, and more. I'm dedicated to creating user-friendly
+                applications that not only look beautiful but also perform
+                seamlessly across different platforms.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 hero-gif-continer" data-aos="fade-left">
+            <!-- Moved and added col-lg-6 here -->
+            <div class="hero-image">
+              <div class="gif-container">
+                <img
+                src="https://analyticsindiamag.com/wp-content/uploads/2018/12/developer-dribbble.gif""
+                alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>My Skills</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12" data-aos="fade-left">
+            <div class="skills-container">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="skill-card" data-aos="fade-right">
+                    <h3>Frontend</h3>
+                    <div class="skill-item">
+                      <div class="skill-name">Flutter / Dart</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                      </div>
+                      <div class="skill-percentage">90%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">HTML</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                      </div>
+                      <div class="skill-percentage">90%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">CSS</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                      </div>
+                      <div class="skill-percentage">90%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">JavaScript</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                      </div>
+                      <div class="skill-percentage">90%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">Git</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                      </div>
+                      <div class="skill-percentage">85%</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="skill-card" data-aos="fade-left">
+                    <h3>Backend</h3>
+                    <div class="skill-item">
+                      <div class="skill-name">Problem Solving</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                      </div>
+                      <div class="skill-percentage">95%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">REST APIs</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                      </div>
+                      <div class="skill-percentage">85%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">Firebase</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                      </div>
+                      <div class="skill-percentage">85%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">Supabase</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                      </div>
+                      <div class="skill-percentage">80%</div>
+                    </div>
+
+                    <div class="skill-item">
+                      <div class="skill-name">MySQL</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                      </div>
+                      <div class="skill-percentage">85%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">PHP</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                      </div>
+                      <div class="skill-percentage">85%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">Python</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                      </div>
+                      <div class="skill-percentage">85%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12" data-aos="fade-up">
+            <div class="technologies-container">
+              <h3>Technologies I Work With</h3>
+              <div class="technologies-grid">
+                <div class="tech-card">
+                  <img src="images/flutter_icon.png" alt="" />
+                  <span>Flutter</span>
+                </div>
+                <div class="tech-card">
+                  <i class="fas fa-fire"></i>
+                  <span>Firebase</span>
+                </div>
+                <div class="tech-card">
+                  <i class="fas fa-database"></i>
+                  <span>Supabase</span>
+                </div>
+                <div class="tech-card">
+                  <i class="fas fa-code"></i>
+                  <span>Dart</span>
+                </div>
+                <div class="tech-card">
+                  <i class="fas fa-exchange-alt"></i>
+                  <span>REST APIs</span>
+                </div>
+                <div class="tech-card">
+                  <i class="fab fa-git-alt"></i>
+                  <span>Git</span>
+                </div>
+                <!-- Added HTML -->
+                <div class="tech-card">
+                  <i class="fab fa-html5" style="color: #e34c26"></i>
+                  <span>HTML</span>
+                </div>
+                <!-- Added CSS -->
+                <div class="tech-card">
+                  <i class="fab fa-css3-alt" style="color: #1572b6"></i>
+                  <span>CSS</span>
+                </div>
+                <!-- Added MySQL -->
+                <div class="tech-card">
+                  <i class="fas fa-database" style="color: #00758f"></i>
+                  <span>MySQL</span>
+                </div>
+                <!-- Added JavaScript -->
+                <div class="tech-card">
+                  <i class="fab fa-js-square" style="color: #f7df1e"></i>
+                  <span>JavaScript</span>
+                </div>
+                <!-- Added PHP -->
+                <div class="tech-card">
+                  <i class="fab fa-php" style="color: #777bb4"></i>
+                  <span>PHP</span>
+                </div>
+                <!-- Added Python -->
+                <div class="tech-card">
+                  <i class="fab fa-python" style="color: #3776ab"></i>
+                  <span>Python</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>My Projects</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="row">
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="https://via.placeholder.com/600x400"
+                  alt="Garment Marketplace App"
+                />
+              </div>
+              <div class="project-details">
+                <h3>Garment Marketplace App</h3>
+                <p>
+                  A custom garment ordering & bidding system built with Flutter
+                  and Firebase. Allows users to create custom garment orders and
+                  receive bids from manufacturers.
+                </p>
+                <div class="tech-tags">
+                  <span>Flutter</span>
+                  <span>Firebase</span>
+                  <span>REST API</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn btn-outline-primary">
+                    <i class="fab fa-github"></i>
+                    <span>View Code</span>
+                  </a>
+                  <a href="#" class="btn btn-primary">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Live Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="images\teacher_assistant.jpg"
+                  alt="Attendance Management App"
+                />
+              </div>
+              <div class="project-details">
+                <h3>Attendance Management App</h3>
+                <p>
+                  A comprehensive attendance tracking system with local and
+                  online synchronization capabilities. Features include QR code
+                  scanning, location tracking, and analytics.
+                </p>
+                <div class="tech-tags">
+                  <span>Flutter</span>
+                  <span>Supabase</span>
+                  <span>Location API</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn btn-outline-primary">
+                    <i class="fab fa-github"></i>
+                    <span>View Code</span>
+                  </a>
+                  <a href="#" class="btn btn-primary">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Live Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="https://play-lh.googleusercontent.com/EUgRlCOH_jwtW39SaG7XeKq8pJsQfKkZB4MYED18npdsKeRZDmN9xVsSV3nbpoJGgIU=w526-h296-rw"
+                  alt="Tic-Tac-Toe Game App"
+                />
+              </div>
+              <div class="project-details">
+                <h3>Tic-Tac-Toe Game App</h3>
+                <p>
+                  An interactive Tic-Tac-Toe game with smooth animations and
+                  AI-based gameplay. Features include multiple difficulty levels
+                  and online multiplayer.
+                </p>
+                <div class="tech-tags">
+                  <span>Flutter</span>
+                  <span>AI Algorithm</span>
+                  <span>Firebase</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn btn-outline-primary">
+                    <i class="fab fa-github"></i>
+                    <span>View Code</span>
+                  </a>
+                  <a href="#" class="btn btn-primary">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Live Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Competitive Programming Section -->
+    <section id="competitive" class="section cp-section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Competitive Programming</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-right">
+            <div class="cp-platform-card">
+              <div class="platform-header">
+                <i class="fas fa-code"></i>
+                <h3>CodeForces</h3>
+              </div>
+              <div class="rating-container">
+                <div class="rating-label">Current Rating:</div>
+                <div class="rating-value">1063</div>
+              </div>
+              <div class="rank-container">
+                <div class="rank-label">Rank:</div>
+                <div class="rank-value">Newbie</div>
+              </div>
+              <div class="problems-solved">
+                <div class="solved-label">Problems Solved:</div>
+                <div class="solved-value">500+</div>
+              </div>
+              <a
+                href="https://codeforces.com/profile/Khaled_Amin"
+                target="_blank"
+                class="btn btn-outline-primary"
+                >View Profile</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-left">
+            <div class="cp-platform-card">
+              <div class="platform-header">
+                <i class="fas fa-laptop-code"></i>
+                <h3>CodeChef</h3>
+              </div>
+              <div class="rating-container">
+                <div class="rating-label">Current Rating:</div>
+                <div class="rating-value">1509</div>
+              </div>
+              <div class="rank-container">
+                <div class="rank-label">Rank:</div>
+                <div class="rank-value">3 Star</div>
+              </div>
+              <div class="problems-solved">
+                <div class="solved-label">Problems Solved:</div>
+                <div class="solved-value">350+</div>
+              </div>
+              <a
+                href="https://www.codechef.com/users/big_khaled"
+                target="_blank"
+                class="btn btn-outline-primary"
+                >View Profile</a
+              >
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="cp-platform-card">
+              <div class="platform-header">
+                <i class="fas fa-terminal"></i>
+                <!-- Using a generic terminal icon for LeetCode -->
+                <h3>LeetCode</h3>
+              </div>
+              <div class="rating-container">
+                <div class="rating-label">Solved Problems:</div>
+                <div class="rating-value">200+</div>
+              </div>
+              <div class="rank-container">
+                <div class="rank-label">Contests:</div>
+                <div class="rank-value">20+</div>
+              </div>
+              <div class="problems-solved">
+                <div class="solved-label">Badges:</div>
+                <div class="solved-value">4+</div>
+              </div>
+              <a
+                href="https://leetcode.com/u/mdkhaledaminshawon/"
+                target="_blank"
+                class="btn btn-outline-primary"
+                >View Profile</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4 justify-content-center">
+          <div class="col-lg-8" data-aos="fade-up">
+            <div class="cp-stats-card">
+              <h3>Problem Solving Statistics</h3>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-value">900+</div>
+                  <div class="stat-label">Total Problems Solved</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">50+</div>
+                  <div class="stat-label">Contests Participated</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">15+</div>
+                  <div class="stat-label">Algorithmic Domains</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section id="education" class="section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Education & Certifications</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="timeline" data-aos="fade-up">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2022 - 2026</div>
+              <h3>B.Sc. in Computer Science & Engineering</h3>
+              <h4>Hajee Mohammad Danesh Science & Technology University</h4>
+              <p>
+                Completed Bachelor's degree with a focus on algorithms, data
+                structures, and software development.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2025</div>
+              <h3>Google Flutter Certification</h3>
+              <h4>Google</h4>
+              <p>
+                Certified Flutter Developer with expertise in building
+                cross-platform mobile applications.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2025</div>
+              <h3>EDGE Flutter Cross Platform Mobile App Development</h3>
+              <h4>EDGE</h4>
+              <p>
+                Certified in Flutter cross-platform mobile app development by
+                EDGE.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2024</div>
+              <h3>Advanced Algorithms Specialization</h3>
+              <h4>Coursera</h4>
+              <p>
+                Completed advanced courses in algorithms and data structures,
+                including graph algorithms, dynamic programming, and more.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Contact Me</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="contact-info">
+              <h3>Let's Connect</h3>
+              <p>
+                I'm currently available for freelance work and full-time
+                positions. If you have a project that needs some creative touch
+                or if you're looking for a Flutter developer who can deliver
+                high-quality apps, feel free to reach out.
+              </p>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <h4>Email</h4>
+                  <p>mdkhaledaminshawon@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+880 1797939155</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <h4>Location</h4>
+                  <p>Rangpur, Bangladesh</p>
+                </div>
+              </div>
+              <div class="social-icons">
+                <a
+                  href="https://github.com/Khaled-Amin-Shawon"
+                  class="social-icon"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/md-khaled-amin-356984242/"
+                  class="social-icon"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+                <a href="https://wa.me/+8801797939155" class="social-icon"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+                <a
+                  href="https://facebook.com/khaledamin.shawon"
+                  class="social-icon"
+                  ><i class="fab fa-facebook"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/khaledamin.shawon/"
+                  class="social-icon"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="contact-form">
+              <form id="contactForm">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="subject"
+                    placeholder="Subject"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    rows="5"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="footer-logo">KS</div>
+            <p>
+              Building beautiful, functional and high-performance applications
+              with Flutter.
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#competitive">Competitive Programming</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h3>Connect With Me</h3>
+            <div class="social-icons">
+              <a
+                href="https://github.com/Khaled-Amin-Shawon"
+                class="social-icon"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/md-khaled-amin-356984242/"
+                class="social-icon"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="https://wa.me/+8801797939155" class="social-icon"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://facebook.com/khaledamin.shawon"
+                class="social-icon"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/khaledamin.shawon/"
+                class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          &copy; 2023 Khaled Amin Shawon. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Add EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
+      (function () {
+        // Initialize EmailJS with your public key
+        emailjs.init("YOUR_PUBLIC_KEY");
+      })();
     </script>
+    <script src="js/main.js"></script>
   </body>
 </html>
