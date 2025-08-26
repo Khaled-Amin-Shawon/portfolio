@@ -52,6 +52,9 @@
               <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#projects">Projects</a>
             </li>
             <li class="nav-item">
@@ -131,23 +134,13 @@
                   </div>
                 </div>
               </div>
-              <div class="hero-gif-continer" data-aos="fade-left">
-                <!-- Moved and added col-lg-6 here -->
-                <div class="hero-image">
-                  <div class="gif-container">
-                    <img
-                    src="https://analyticsindiamag.com/wp-content/uploads/2018/12/developer-dribbble.gif""
-                    alt="">
-                    <!-- Replace with actual image -->
-                    <!-- <img
-                        src="images\profile_pic.jpg"
-                        alt="Avatar"
-                        class="avatar-image"
-                      /> -->
-                    <!-- <div class="avatar-placeholder">
-                          <i class="fas fa-user"></i>
-                      </div> -->
-                  </div>
+              <div class="col-lg-6" data-aos="fade-left">
+                <div class="profile-pic-container">
+                  <img
+                    src="images/profile_pic.jpg"
+                    alt="Profile Picture"
+                    class="img-fluid profile-pic"
+                  />
                 </div>
               </div>
             </div>
@@ -207,44 +200,126 @@
               </p>
             </div>
           </div>
-          <!-- Skill Section -->
-          <div class="col-lg-6" data-aos="fade-left">
+          <div class="col-lg-6 hero-gif-continer" data-aos="fade-left">
+            <!-- Moved and added col-lg-6 here -->
+            <div class="hero-image">
+              <div class="gif-container">
+                <img
+                src="https://analyticsindiamag.com/wp-content/uploads/2018/12/developer-dribbble.gif""
+                alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>My Skills</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12" data-aos="fade-left">
             <div class="skills-container">
-              <h3>My Skills</h3>
-              <div class="skill-item">
-                <div class="skill-name">Flutter / Dart</div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 90%"></div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="skill-card" data-aos="fade-right">
+                    <h3>Frontend</h3>
+                    <div class="skill-item">
+                      <div class="skill-name">Flutter / Dart</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                      </div>
+                      <div class="skill-percentage">90%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">HTML</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                      </div>
+                      <div class="skill-percentage">90%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">CSS</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                      </div>
+                      <div class="skill-percentage">90%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">JavaScript</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                      </div>
+                      <div class="skill-percentage">90%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">Git</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                      </div>
+                      <div class="skill-percentage">85%</div>
+                    </div>
+                  </div>
                 </div>
-                <div class="skill-percentage">90%</div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-name">Firebase</div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 85%"></div>
+                <div class="col-lg-6">
+                  <div class="skill-card" data-aos="fade-left">
+                    <h3>Backend</h3>
+                    <div class="skill-item">
+                      <div class="skill-name">Problem Solving</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                      </div>
+                      <div class="skill-percentage">95%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">REST APIs</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                      </div>
+                      <div class="skill-percentage">85%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">Firebase</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                      </div>
+                      <div class="skill-percentage">85%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">Supabase</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                      </div>
+                      <div class="skill-percentage">80%</div>
+                    </div>
+
+                    <div class="skill-item">
+                      <div class="skill-name">MySQL</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                      </div>
+                      <div class="skill-percentage">85%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">PHP</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                      </div>
+                      <div class="skill-percentage">85%</div>
+                    </div>
+                    <div class="skill-item">
+                      <div class="skill-name">Python</div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                      </div>
+                      <div class="skill-percentage">85%</div>
+                    </div>
+                  </div>
                 </div>
-                <div class="skill-percentage">85%</div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-name">Supabase</div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 80%"></div>
-                </div>
-                <div class="skill-percentage">80%</div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-name">REST APIs</div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 85%"></div>
-                </div>
-                <div class="skill-percentage">85%</div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-name">Problem Solving</div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 95%"></div>
-                </div>
-                <div class="skill-percentage">95%</div>
               </div>
             </div>
           </div>
@@ -255,7 +330,7 @@
               <h3>Technologies I Work With</h3>
               <div class="technologies-grid">
                 <div class="tech-card">
-                  <i class="fab fa-flutter"></i>
+                  <img src="images/flutter_icon.png" alt="" />
                   <span>Flutter</span>
                 </div>
                 <div class="tech-card">
@@ -277,6 +352,36 @@
                 <div class="tech-card">
                   <i class="fab fa-git-alt"></i>
                   <span>Git</span>
+                </div>
+                <!-- Added HTML -->
+                <div class="tech-card">
+                  <i class="fab fa-html5" style="color: #e34c26"></i>
+                  <span>HTML</span>
+                </div>
+                <!-- Added CSS -->
+                <div class="tech-card">
+                  <i class="fab fa-css3-alt" style="color: #1572b6"></i>
+                  <span>CSS</span>
+                </div>
+                <!-- Added MySQL -->
+                <div class="tech-card">
+                  <i class="fas fa-database" style="color: #00758f"></i>
+                  <span>MySQL</span>
+                </div>
+                <!-- Added JavaScript -->
+                <div class="tech-card">
+                  <i class="fab fa-js-square" style="color: #f7df1e"></i>
+                  <span>JavaScript</span>
+                </div>
+                <!-- Added PHP -->
+                <div class="tech-card">
+                  <i class="fab fa-php" style="color: #777bb4"></i>
+                  <span>PHP</span>
+                </div>
+                <!-- Added Python -->
+                <div class="tech-card">
+                  <i class="fab fa-python" style="color: #3776ab"></i>
+                  <span>Python</span>
                 </div>
               </div>
             </div>
@@ -416,7 +521,7 @@
           <div class="underline"></div>
         </div>
         <div class="row">
-          <div class="col-lg-6" data-aos="fade-right">
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-right">
             <div class="cp-platform-card">
               <div class="platform-header">
                 <i class="fas fa-code"></i>
@@ -424,25 +529,25 @@
               </div>
               <div class="rating-container">
                 <div class="rating-label">Current Rating:</div>
-                <div class="rating-value">1850</div>
+                <div class="rating-value">1063</div>
               </div>
               <div class="rank-container">
                 <div class="rank-label">Rank:</div>
-                <div class="rank-value">Expert</div>
+                <div class="rank-value">Newbie</div>
               </div>
               <div class="problems-solved">
                 <div class="solved-label">Problems Solved:</div>
                 <div class="solved-value">500+</div>
               </div>
               <a
-                href="https://codeforces.com/"
+                href="https://codeforces.com/profile/Khaled_Amin"
                 target="_blank"
                 class="btn btn-outline-primary"
                 >View Profile</a
               >
             </div>
           </div>
-          <div class="col-lg-6" data-aos="fade-left">
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-left">
             <div class="cp-platform-card">
               <div class="platform-header">
                 <i class="fas fa-laptop-code"></i>
@@ -450,18 +555,49 @@
               </div>
               <div class="rating-container">
                 <div class="rating-label">Current Rating:</div>
-                <div class="rating-value">2050</div>
+                <div class="rating-value">1509</div>
               </div>
               <div class="rank-container">
                 <div class="rank-label">Rank:</div>
-                <div class="rank-value">5 Star</div>
+                <div class="rank-value">3 Star</div>
               </div>
               <div class="problems-solved">
                 <div class="solved-label">Problems Solved:</div>
                 <div class="solved-value">350+</div>
               </div>
               <a
-                href="https://codechef.com/"
+                href="https://www.codechef.com/users/big_khaled"
+                target="_blank"
+                class="btn btn-outline-primary"
+                >View Profile</a
+              >
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="cp-platform-card">
+              <div class="platform-header">
+                <i class="fas fa-terminal"></i>
+                <!-- Using a generic terminal icon for LeetCode -->
+                <h3>LeetCode</h3>
+              </div>
+              <div class="rating-container">
+                <div class="rating-label">Solved Problems:</div>
+                <div class="rating-value">200+</div>
+              </div>
+              <div class="rank-container">
+                <div class="rank-label">Contests:</div>
+                <div class="rank-value">20+</div>
+              </div>
+              <div class="problems-solved">
+                <div class="solved-label">Badges:</div>
+                <div class="solved-value">4+</div>
+              </div>
+              <a
+                href="https://leetcode.com/u/mdkhaledaminshawon/"
                 target="_blank"
                 class="btn btn-outline-primary"
                 >View Profile</a
@@ -469,8 +605,8 @@
             </div>
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="col-12" data-aos="fade-up">
+        <div class="row mt-4 justify-content-center">
+          <div class="col-lg-8" data-aos="fade-up">
             <div class="cp-stats-card">
               <h3>Problem Solving Statistics</h3>
               <div class="stats-grid">
@@ -522,6 +658,18 @@
               <p>
                 Certified Flutter Developer with expertise in building
                 cross-platform mobile applications.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2025</div>
+              <h3>EDGE Flutter Cross Platform Mobile App Development</h3>
+              <h4>EDGE</h4>
+              <p>
+                Certified in Flutter cross-platform mobile app development by
+                EDGE.
               </p>
             </div>
           </div>
