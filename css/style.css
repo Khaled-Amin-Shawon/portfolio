@@ -448,7 +448,7 @@ body.dark-mode .section-title h2::after {
   flex-wrap: wrap;
   justify-content: space-around; /* Adjust as needed */
   align-items: center;
-  padding: 3rem;
+  padding: 10px;
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
